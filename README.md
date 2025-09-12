@@ -1,1 +1,0 @@
-# versapath-config-repo

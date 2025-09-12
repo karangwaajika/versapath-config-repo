@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: user-management
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: ${DB_DRIVER_CLASS_NAME}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    jwt:
+      secret: ${JWT_SECRET}
+      expirationMs: ${JWT_EXPIRATION_MS:86400000}
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+      password: ${SPRING_REDIS_PASSWORD:}
+      timeout: ${SPRING_REDIS_TIMEOUT:2000ms}
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+
+  mail:
+    host: ${SPRING_MAIL_HOST:sandbox.smtp.mailtrap.io}
+    port: ${SPRING_MAIL_PORT:2525}
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+        debug: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${SPRING_EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+  instance:
+    prefer-ip-address: true
+
+app:
+  base-url: ${APP_BASE_URL:http://localhost:4200}
+  notification:
+    email:
+      from: ${APP_NOTIFICATION_EMAIL_FROM}
+      subject:
+        prefix: ${APP_NOTIFICATION_EMAIL_SUBJECT_PREFIX}
+  registration:
+    token:
+      secret: ${APP_REGISTRATION_TOKEN_SECRET}
+      expiration-ms: ${APP_REGISTRATION_TOKEN_EXPIRATION_MS:86400000}
