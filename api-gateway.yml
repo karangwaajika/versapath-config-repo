@@ -97,9 +97,7 @@ spring:
         - id: roadmap-service
           uri: lb://roadmap-service
           predicates:
-            - Path=/api/v1/roadmap/**
-          filters:
-            - StripPrefix=2       
+            - Path=/api/v1/roadmap/**      
   config:
     import: optional:configserver:${CONFIG_SERVER_URL}
 
