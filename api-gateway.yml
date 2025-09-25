@@ -102,7 +102,13 @@ spring:
         - id: roadmap-service-learner
           uri: lb://roadmap-service
           predicates:
-            - Path=/api/v1/learner/** 
+            - Path=/api/v1/learner/**
+
+      # assessment service 
+        - id: assessment-service
+          uri: lb://assessment-service
+          predicates:
+            - Path=/api/v1/assessment/**     
   config:
     import: optional:configserver:${CONFIG_SERVER_URL}
 
