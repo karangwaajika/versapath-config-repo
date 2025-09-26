@@ -108,7 +108,10 @@ spring:
         - id: assessment-service
           uri: lb://assessment-service
           predicates:
-            - Path=/api/v1/assessment/**     
+            - Path=/api/v1/assessment/** 
+          filters:
+            - StripPrefix=2 
+                  
   config:
     import: optional:configserver:${CONFIG_SERVER_URL}
 
