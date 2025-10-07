@@ -111,6 +111,12 @@ spring:
             - Path=/api/v1/assessment/** 
           filters:
             - StripPrefix=2 
+            
+      # credential service   
+        - id: credential-service
+          uri: lb://credential-service
+          predicates:
+            - Path=/api/v1/badges/**
                   
   config:
     import: optional:configserver:${CONFIG_SERVER_URL}
