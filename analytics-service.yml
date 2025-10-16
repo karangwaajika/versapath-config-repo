@@ -14,6 +14,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        type:                                                                                                                                  
+          preferred_uuid_jdbc_type: VARCHAR
+        jdbc:                                                                                                                                  
+          lob:                                                                                                                                 
+            non_contextual_creation: true
+         
 
 eureka:
   client:
