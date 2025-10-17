@@ -117,6 +117,12 @@ spring:
           uri: lb://credential-service
           predicates:
             - Path=/api/v1/badges/**
+            
+      # analytics service   
+        - id: analytics-service
+          uri: lb://analytics-service
+          predicates:
+            - Path=/api/v1/analytics/**
                   
   config:
     import: optional:configserver:${CONFIG_SERVER_URL}
